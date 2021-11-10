@@ -1,0 +1,62 @@
+ion-content {
+  --padding-start: 0px;
+  --padding-end: 0px;
+
+  --background: #fff url("../../../assets/img/homebg10.jpg") no-repeat center
+    center / cover;
+  section {
+    ion-label {
+      color: orange;
+      font-size: 13px;
+    }
+  }
+  ion-button {
+    --background: #f5fc96;
+  }
+}
+
+ion-header {
+  ion-toolbar {
+    --padding-top: 7px;
+    --padding-bottom: 7px;
+    --background: #000000;
+    color: goldenrod;
+  }
+}
+ion-toolbar {
+  --min-height: 28px;
+  --background: #837d7d;
+  color: white;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  ion-label{
+    font-size: 14px;
+  }
+}
+
+ion-card{
+  margin-top: 5px;
+  margin-bottom: -5px;
+  background-color: (rgba(247, 228, 147, 0.8)) !important;
+  // background-color: transparent;
+  ion-card-subtitle{
+    font-size: 13px;
+    font-weight: bolder;
+    color: rgb(33, 34, 2);
+  }
+  ion-label{
+    font-size: 12px;
+    color: rgb(49, 44, 1);
+  }
+  ion-icon{
+    font-size: 28px;
+    color: rgb(76, 124, 4);
+  }
+}
+
+.vertical-align-content
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

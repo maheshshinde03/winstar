@@ -1,0 +1,10 @@
+{
+  "name": "gamingApp",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

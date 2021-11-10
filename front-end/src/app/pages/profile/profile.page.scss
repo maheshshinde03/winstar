@@ -1,0 +1,121 @@
+.errors {
+    font-size: small;
+    color: #fff;
+    background: var(--ion-color-danger);
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ion-segment {
+    background: goldenrod;
+    padding: 5px;
+    border-radius: 0px;
+    align-items: center;
+  }
+
+h2:first-letter {
+    text-transform:capitalize;
+}
+.header {
+    height: 180px;
+    // background-color: #7e6bc5;
+    // background-color: #1b6181;
+    background: #0b0c0c;
+    width: 100%;
+    padding-top: 1px;
+}
+
+.header h4 {
+    color: goldenrod;
+    text-align: center;
+    font-weight: bold;
+}
+
+.header h5 {
+    color: goldenrod;
+    text-align: center;
+    font-weight: bold;
+}
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 0px 10px;
+}
+
+.followings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.followings p {
+    color: white;
+    margin: 8px 0px 0px 0px;
+}
+
+
+.border-white {
+    // border: rgb(35, 65, 105) solid 4px;
+    border-radius: 50%;
+    width: fit-content;
+}
+
+.border-blue {
+    border: 7px solid #006bbf;
+    border-radius: 50%;
+    width: fit-content;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    margin-top: -76px;
+}
+.tweet ion-label {
+    line-height: 1!important;
+    font-size: 15px;
+    margin: 6px 0px 6px 0px!important;
+    min-height: 34px;
+}
+
+.tweet {
+    margin-top: -10px!important;
+}
+
+
+ion-tabs{
+    ion-tab-bar{
+        background-color: #1b6181;
+    }
+
+    ion-tab-button {
+        --background: var(--ion-color-blue);
+      }
+}
+
+
+
+ion-toolbar{
+    width:70% ;
+}
+
+ion-content{
+    --background: rgb(255, 255, 255) url("../../../assets/img/homebg10.jpg") no-repeat center
+    center / cover ;
+    ion-segment{
+        --background:#4545fc;
+        padding: 5px;
+        border-radius: 10px;
+        align-items: center;
+    }
+}
+
+#forheader{
+    border-radius: 20px;
+    padding:10px;
+}
+ion-label{
+    font-weight: bold;
+    font-size: 25px;
+}

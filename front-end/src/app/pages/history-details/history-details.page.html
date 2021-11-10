@@ -1,0 +1,364 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>History Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="ion-text-center">
+    <!-- <center> -->
+    <p class="walletbalspan">Last Game No.
+      <ion-chip outline color="warning" style="background-color: rgb(24, 112, 24);">
+        <ion-label>{{response.game_id}}</ion-label>
+      </ion-chip>
+      Details
+    </p>
+  </div>  
+
+  <br>
+  <div class="container ion-text-center">
+    <ion-grid>
+      <!-- row 1 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>1</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/elephant.png">
+              <h6>Elephant</h6>
+              <ion-label>{{response.img_1_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>2</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/tortoise.png">
+              <h6>Turtle</h6>
+              <ion-label>{{response.img_2_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>3</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/rabbit.png">
+              <h6>Rabbit</h6>
+              <ion-label>{{response.img_3_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 2 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>4</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/lion.png">
+              <h6>Lion</h6>
+              <ion-label>{{response.img_4_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>5</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/car.png">
+              <h6>Car</h6>
+              <ion-label>{{response.img_5_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>6</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/aeroplane.png">
+              <h6>Aeroplane</h6>
+              <ion-label>{{response.img_6_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 3 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>7</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/ship.png">
+              <h6>Ship</h6>
+              <ion-label>{{response.img_7_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>8</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/tree.png">
+              <h6>Tree</h6>
+              <ion-label>{{response.img_8_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>9</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/sun.png">
+              <h6>Sun</h6>
+              <ion-label>{{response.img_9_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 4 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>10</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/banana.png">
+              <h6>Banana</h6>
+              <ion-label>{{response.img_10_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>11</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img width="auto" height="auto" src="../../assets/animal_pic/jackpot.png">
+              <h6>Jackpot</h6>
+              <ion-label>{{response.img_11_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-card-header (click)="closeModal()">
+              <h5>Game History</h5>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+<ion-grid>
+ <ion-row>
+   <ion-col offset="3" class="ion-align-self-center">
+    <ion-label style="text-align: center; color: antiquewhite;color: yellow;">-------*************-------</ion-label>
+   </ion-col>
+ </ion-row>
+
+
+  <ion-row> 
+     <ion-col>
+      <ion-card style=" background: linear-gradient(to top right, #660066 0%, #009999 100%);">
+      <ion-row>
+        <ion-col size="4">
+          <img style="margin-left: 5px;" width="auto" height="auto" src="../../assets/img/wallet.png">
+        </ion-col>
+
+        <ion-col size="8">
+          <h5 style="color: yellow;">{{response.fran_opening_game_deposit}}</h5>
+        </ion-col>
+      </ion-row>
+       
+        <ion-row style="color: white; font-size: 15px; margin-left: 20px;"> 
+          Opening Game Deposit(₹)
+        </ion-row>
+        <br><br>
+      </ion-card>
+     </ion-col>
+
+     <ion-col>
+      <ion-card style=" background: linear-gradient(to top right, #660066 0%, #009999 100%);">
+      <ion-row>
+        <ion-col size="4">
+          <img style="margin-left: 5px;" width="auto" height="auto" src="../../assets/img/wallet.png">
+        </ion-col>
+
+        <ion-col size="8">
+          <h5 style="color: yellow;">{{response.fran_closing_game_deposit}}</h5>
+        </ion-col>
+      </ion-row>
+       
+        <ion-row style="color: white; font-size: 15px; margin-left: 20px;"> 
+          Closing Game Deposit(₹)
+        </ion-row>
+        <br><br>
+      </ion-card>
+     </ion-col>
+  </ion-row>
+   
+  <ion-row>   
+    <ion-col>
+      <ion-card style=" background: linear-gradient(to top right, #660066 0%, #009999 100%);">
+      <ion-row>
+        <ion-col size="4">
+          <img style="margin-left: 5px;" width="auto" height="auto" src="../../assets/img/wallet.png">
+        </ion-col>
+
+        <ion-col size="8">
+          <h5 style="color: yellow;">{{response.fran_commission_rate}}</h5>
+        </ion-col>
+      </ion-row>
+       
+        <ion-row style="color: white; font-size: 15px; margin-left: 20px;"> 
+         Commission Rate(%)
+        </ion-row>
+        <br>
+      </ion-card>
+     </ion-col>
+
+
+     <ion-col>
+      <ion-card style=" background: linear-gradient(to top right, #660066 0%, #009999 100%);">
+      <ion-row>
+        <ion-col size="4">
+          <img style="margin-left: 5px;" width="auto" height="auto" src="../../assets/img/wallet.png">
+        </ion-col>
+
+        <ion-col size="8">
+          <h5 style="color: yellow;">{{response.fran_commission_earned}}</h5>
+        </ion-col>
+      </ion-row>
+       
+        <ion-row style="color: white; font-size: 15px; margin-left: 20px;"> 
+          Commission Earned(₹)
+        </ion-row>
+        <br>
+      </ion-card>
+     </ion-col>
+  </ion-row>
+
+  <!-- <ion-row>   
+    <ion-col style="padding: 10px;">
+      <ion-card style=" background: linear-gradient(to top right, #660066 0%, #009999 100%);border-radius: 45px;padding: 1px;">
+
+        <ion-row style="padding: -10px;">
+          <ion-col  offset="5">
+            <h5 style="color: yellow;">{{response.fran_commission_rate}}</h5>
+          </ion-col>
+        </ion-row>
+
+      <ion-row style="padding: -10px;">
+        <ion-col offset="4">
+          <img  width="45px" height="45px" src="../../assets/img/wallet.png">
+        </ion-col>
+      </ion-row>
+      
+        <ion-row style="text-align: center;padding: -10px;"> 
+          <ion-col>
+            <p style="color: white; font-size: 7;  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Commission rate</p> 
+          </ion-col>
+        </ion-row>
+        <br>
+      </ion-card>
+     </ion-col>
+
+     <ion-col>
+      <ion-card style=" background: linear-gradient(to top right, #660066 0%, #009999 100%);">
+      <ion-row>
+        <ion-col>
+          <img  width="auto" height="auto" src="../../assets/img/wallet.png">
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="8">
+          <h5 style="color: yellow;">{{response.fran_commission_rate}}</h5>
+        </ion-col>
+      </ion-row>
+       
+        <ion-row style="color: white; font-size: 10px; margin-left: 20px;"> 
+          Franchise commission rate
+        </ion-row>
+        <br><br>
+      </ion-card>
+     </ion-col>
+  </ion-row>    -->
+
+</ion-grid> 
+   
+</ion-content>

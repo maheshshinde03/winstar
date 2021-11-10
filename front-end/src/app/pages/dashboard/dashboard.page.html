@@ -1,0 +1,625 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngFor="let user of users">{{user.fran_userid}} : {{user.fran_id}}</ion-title>
+    <ion-menu-button slot="end" color="warning"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="ion-text-center">
+    <p class="walletbalspan ion-text-center" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">My Wallet Balance</p>
+    <span class="Green3D"  *ngFor="let user of users">{{user.fran_game_deposit}}</span>
+  </div>
+
+  <div class="ion-text-center">
+    <!-- <center> -->
+    <p class="walletbalspan" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Last Game No.
+      <ion-chip outline color="warning">
+        <ion-label *ngFor="let game of games">{{game.game_id}}</ion-label>
+      </ion-chip>
+      Details
+    </p>
+
+    <ion-grid>
+      <ion-row >
+        <ion-col *ngFor="let game of games">
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 1">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/elephant.png" width="70"></div>
+              <div class="winnername ion-text-center">Elephant</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 2">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/tortoise.png" width="70"></div>
+              <div class="winnername ion-text-center">Turtle</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 3">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/rabbit.png" width="70"></div>
+              <div class="winnername ion-text-center">Rabbit</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 4">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/lion.png" width="70"></div>
+              <div class="winnername ion-text-center">Lion</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 5">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/car.png" width="70"></div>
+              <div class="winnername ion-text-center">Car</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 6">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/aeroplane.png" width="70"></div>
+              <div class="winnername ion-text-center">Aeroplane</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 7">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/ship.png" width="70"></div>
+              <div class="winnername ion-text-center">Ship</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 8">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/tree.png" width="70"></div>
+              <div class="winnername ion-text-center">Tree</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 9">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/sun.png" width="70"></div>
+              <div class="winnername ion-text-center">Sun</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 10">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/banana.png" width="70"></div>
+              <div class="winnername ion-text-center">Banana</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 11">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/jackpot.png" width="70"></div>
+              <div class="winnername ion-text-center">Jackpot</div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" *ngIf="game.winning_number == 0">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">{{game.winning_number}}</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../assets/animal_pic/joker.png" width="70"></div>
+              <div class="winnername ion-text-center">Joker</div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col *ngIf="!games?.length > 0">
+          <div style="text-align: center;">
+            <div class="winbox1">
+
+              <div class="quarter-circle-top-left">
+                <div class="winningno">**</div>
+              </div>
+
+              <div class="winimagediv"> <img src="../../../assets/img/winimage1.png" width="70"></div>
+              <div class="winnername ion-text-center">No Winning Number</div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col *ngFor="let frangame of frangames">
+          <div style="text-align: center;">
+            <div class="winbox2">
+              <div class="quarter-circle-top">
+                <div class="winningno2">{{frangame.fran_winning_amount}}</div>
+                <span class="winamt">Winning Amount</span>
+              </div>
+              <div class="ratio">
+                <span>{{frangame.fran_game_placed_amount}}</span><br>
+                <small>Game Amount</small>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col *ngIf="!frangames?.length > 0">
+          <div style="text-align: center;">
+            <div class="winbox2">
+              <div class="quarter-circle-top">
+                <div class="winningno2">00</div>
+                <span class="winamt">Winning Amount</span>
+              </div>
+              <div class="ratio">
+                <span>00</span><br>
+                <small>Game Amount</small>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="container ion-text-center" *ngFor="let frangame of frangames" style="margin-bottom:60px">
+    <ion-grid>
+      <!-- row 1 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>1</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/elephant.png" />
+              <h6>Elephant</h6>
+              <ion-label>{{frangame.img_1_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>2</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/tortoise.png" />
+              <h6>Turtle</h6>
+              <ion-label>{{frangame.img_2_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>3</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/rabbit.png" />
+              <h6>Rabbit</h6>
+              <ion-label>{{frangame.img_3_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 2 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>4</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/lion.png" />
+              <h6>Lion</h6>
+              <ion-label>{{frangame.img_4_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>5</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/car.png" />
+              <h6>Car</h6>
+              <ion-label>{{frangame.img_5_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>6</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/aeroplane.png" />
+              <h6>Aeroplane</h6>
+              <ion-label>{{frangame.img_6_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 3 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>7</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/ship.png" />
+              <h6>Ship</h6>
+              <ion-label>{{frangame.img_7_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>8</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/tree.png" />
+              <h6>Tree</h6>
+              <ion-label>{{frangame.img_8_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>9</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/sun.png" />
+              <h6>Sun</h6>
+              <ion-label>{{frangame.img_9_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 4 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>10</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/banana.png" />
+              <h6>Banana</h6>
+              <ion-label>{{frangame.img_10_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>11</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/jackpot.png" />
+              <h6>Jackpot</h6>
+              <ion-label>{{frangame.img_11_amount}}</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-card-header routerLink="/tabs-menu/history">
+              <h5>View All Game History</h5>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+  <div class="container ion-text-center" *ngIf="!frangames?.length > 0" style="margin-bottom:60px">
+    <ion-grid>
+      <!-- row 1 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>1</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/elephant.png" />
+              <h6>Elephant</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>2</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/tortoise.png" />
+              <h6>Turtle</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>3</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/rabbit.png" />
+              <h6>Rabbit</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 2 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>4</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/lion.png" />
+              <h6>Lion</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>5</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/car.png" />
+              <h6>Car</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>6</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/aeroplane.png" />
+              <h6>Aeroplane</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 3 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>7</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/ship.png" />
+              <h6>Ship</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>8</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/tree.png" />
+              <h6>Tree</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>9</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/sun.png" />
+              <h6>Sun</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 4 -->
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>10</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/banana.png" />
+              <h6>Banana</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button>
+                <ion-label>11</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/jackpot.png" />
+              <h6>Jackpot</h6>
+              <ion-label>00</ion-label>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-card-header routerLink="/tabs-menu/history">
+              <h5>View All Game History</h5>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+</ion-content>

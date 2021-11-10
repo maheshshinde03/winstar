@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="notifications"></ion-icon> Notifications
+    </ion-title>
+    <ion-menu-button slot="end" color="warning"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+<ion-toolbar class="ion-text-center">
+  <ion-label>Today is: {{today?.toDateString()?.slice(0,10)}}</ion-label>
+</ion-toolbar>
+
+<ion-content >
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div style="margin-bottom:70px">
+  <ion-grid *ngFor="let notification of notifications">
+    <section class="ion-text-right">
+      <ion-label position="floating">{{notification.date_time | date:'dd/MM/yyyy hh:mm a'}}</ion-label>
+    </section>
+    <ion-card mode="md">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+
+        <ion-col class="vertical-align-content" size="2">
+          <ion-icon name="checkmark-done-circle"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+          <ion-card-subtitle>{{notification.subject}}</ion-card-subtitle>
+          <ion-label>{{notification.message}} </ion-label>
+        </ion-col>
+
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</div>
+  
+  <ion-card *ngIf="!notifications?.length > 0" style="border-radius: 45px;">
+    <ion-card-content  >
+     <h3>Notifications not found</h3>        
+     </ion-card-content>
+  </ion-card>
+
+</ion-content>

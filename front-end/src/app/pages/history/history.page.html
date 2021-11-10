@@ -1,0 +1,384 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="timer"></ion-icon> History
+    </ion-title>
+    <ion-menu-button slot="end" color="warning"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-segment value="history" scrollable="true" mode="ios" (ionChange)="segmentChanged($event)" [(ngModel)]='show'>
+
+  <ion-segment-button value="today">
+    <ion-label>Today</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="yesterday">
+    <ion-label>Yesterday</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="daterange">
+    <ion-label>Date Range</ion-label>
+  </ion-segment-button>
+
+</ion-segment>
+
+<ion-content>
+<div style="margin-bottom:70px">
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="container ion-text-center">
+    <div *ngIf="show == 'today' ">
+
+      <ion-grid>
+        <!-- row 1 -->
+        <ion-row *ngFor="let today of todays" (click)="openModal(today)">
+          <ion-col>
+            <ion-card style="margin-bottom: 3px;">
+              <ion-fab vertical="top" horizontal="start">
+                <ion-fab-button>
+                  <ion-label>{{today.winning_number}}</ion-label>
+                </ion-fab-button>
+              </ion-fab>
+              <ion-fab vertical="bottom" color="danger" horizontal="start">
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='1'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/elephant.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='2'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/tortoise.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='3'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/rabbit.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='4'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/lion.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='5'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/car.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='6'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/aeroplane.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='7'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/ship.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='8'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/tree.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='9'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/sun.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='10'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/banana.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='11'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/jackpot.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="today.winning_number =='0'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/joker.png">
+                </ion-fab-button>
+              </ion-fab>
+
+              <ion-fab vertical="bottom" color="danger" horizontal="end">
+                <ion-fab-button color="light">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+  
+              <ion-card-header>
+                <ion-grid class="ion-text-enter">
+                  <ion-row>
+                    <ion-col size="6">
+                      <span>Game No: </span> <span>{{today.game_id}}</span>
+                    </ion-col>
+                    <ion-col size="6">
+                      <span>{{today.date_time | date:'dd/MM/yyyy hh:mm a'}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="6">
+                      <h6>{{today.fran_game_placed_amount}}</h6>
+                    </ion-col>
+                    <ion-col size="6">
+                      <h6><b>{{today.fran_winning_amount}}</b></h6>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="6">
+                      <h5>Game Points</h5>
+                    </ion-col>
+                    <ion-col size="6">
+                      <h5>Winning Points</h5>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-header>
+            </ion-card>
+            <br>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+       <ion-card *ngIf="!todays?.length > 0">
+        <ion-card-content  >
+          <h3 style="font: bold;">Today History not found</h3>        
+          </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+
+  <div class="container ion-text-center">
+    <div *ngIf="show == 'yesterday' ">
+
+      <ion-grid>
+        <ion-row *ngFor="let yesterday of yesterdays" (click)="openModal(yesterday)">
+          <ion-col>
+            <ion-card style="margin-bottom: 3px;">
+              <ion-fab vertical="top" horizontal="start">
+                <ion-fab-button>
+                  <ion-label>{{yesterday.winning_number}}</ion-label>
+                </ion-fab-button>
+              </ion-fab>
+              <ion-fab vertical="bottom" color="danger" horizontal="start">
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='1'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/elephant.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='2'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/tortoise.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='3'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/rabbit.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='4'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/lion.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='5'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/car.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='6'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/aeroplane.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='7'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/ship.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='8'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/tree.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='9'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/sun.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='10'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/banana.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='11'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/jackpot.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="yesterday.winning_number =='0'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/joker.png">
+                </ion-fab-button>
+              </ion-fab>
+
+              <ion-fab vertical="bottom" color="danger" horizontal="end">
+                <ion-fab-button color="light">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+  
+              <ion-card-header>
+                <ion-grid class="ion-text-enter">
+                  <ion-row>
+                    <ion-col size="6">
+                      <span>Game No: </span> <span>{{yesterday.game_id}}</span>
+                    </ion-col>
+                    <ion-col size="6">
+                      <span>{{yesterday.date_time | date:'dd/MM/yyyy hh:mm a'}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="6">
+                      <h6>{{yesterday.fran_game_placed_amount}}</h6>
+                    </ion-col>
+                    <ion-col size="6">
+                      <h6><b>{{yesterday.fran_winning_amount}}</b></h6>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="6">
+                      <h5>Game Points</h5>
+                    </ion-col>
+                    <ion-col size="6">
+                      <h5>Winning Points</h5>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-header>
+            </ion-card>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+      <ion-card *ngIf="!yesterdays?.length > 0">
+        <ion-card-content  >
+          <h3 style="font: bold;">Yesterday History not found</h3>        
+          </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="container ion-text-center">
+    <div *ngIf="show == 'daterange' ">
+    
+
+      <section>
+       <form (ngSubmit)="submitdate()" [formGroup]="dateRang">
+        <ion-grid>
+          <ion-row class="ion-text-center">
+
+            <ion-col size="4">
+              <ion-label>Select Start Date</ion-label>    
+              <ion-datetime style="color: black;" placeholder="Select Date" formControlName="start_date" ></ion-datetime>   
+            </ion-col>
+
+            <ion-col size="4">
+              <ion-label>Select End Date</ion-label>           
+              <ion-datetime style="color: black;" placeholder="Select Date" formControlName="end_date" ></ion-datetime>
+            </ion-col>
+
+            <ion-col size="4">
+             <ion-button type="submit" id="button" color="warning" size="small" [disabled]="!dateRang.valid">Submit</ion-button>
+            </ion-col>
+          </ion-row>
+    
+        </ion-grid>
+       </form> 
+      </section>
+
+      <ion-grid>
+        <ion-row *ngFor="let rang of rangs"  (click)="openModal(rang)">
+          <ion-col>
+            <ion-card >
+              <ion-fab vertical="top" horizontal="start">
+                <ion-fab-button>
+                  <ion-label>{{rang.winning_number}}</ion-label>
+                </ion-fab-button>
+              </ion-fab>
+              <ion-fab vertical="bottom" color="danger" horizontal="start">
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='1'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/elephant.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='2'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/tortoise.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='3'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/rabbit.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='4'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/lion.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='5'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/car.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='6'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/aeroplane.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='7'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/ship.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='8'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/tree.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='9'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/sun.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='10'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/banana.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='11'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/jackpot.png">
+                </ion-fab-button>
+
+                <ion-fab-button color="warning" *ngIf="rang.winning_number =='0'">
+                  <img width="auto" height="auto" src="../../assets/animal_pic/joker.png">
+                </ion-fab-button>
+              </ion-fab>
+
+              <ion-fab vertical="bottom" color="danger" horizontal="end">
+                <ion-fab-button color="light">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+  
+              <ion-card-header>
+                <ion-grid class="ion-text-enter">
+                  <ion-row>
+                    <ion-col size="6">
+                      <span>Game No: </span> <span>{{rang.game_id}}</span>
+                    </ion-col>
+                    <ion-col size="6">
+                      <span>{{rang.date_time | date:'dd/MMM/yyyy h:mm a'}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="6">
+                      <h6>{{rang.fran_game_placed_amount}}</h6>
+                    </ion-col>
+                    <ion-col size="6">
+                      <h6><b>{{rang.fran_winning_amount}}</b></h6>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="6">
+                      <h5>Game Points</h5>
+                    </ion-col>
+                    <ion-col size="6">
+                      <h5>Winning Points</h5>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+  </div>
+</div>
+</ion-content>

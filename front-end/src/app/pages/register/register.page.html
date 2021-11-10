@@ -1,0 +1,101 @@
+<ion-content>
+  <ion-row>
+  <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+        offset-xl="4">
+  <ion-card>
+    <ion-card-header class="login_header">
+      <ion-toolbar>Registration</ion-toolbar>
+    </ion-card-header>
+    <ion-card-header>
+      <!-- <ion-card-title class="ion-text-center">Registration</ion-card-title> -->
+    <img src="../../../assets/img/LogoWinstarsmall.png" />
+  
+    </ion-card-header>
+    <ion-card-content>
+    <form (ngSubmit)="register()" [formGroup]="credentials">
+    <div class="input-group">  
+     <ion-item>
+      <ion-input type="text" style="text-transform: capitalize;"   placeholder="Business Name" formControlName="business_name"></ion-input>
+     </ion-item>
+     <div *ngIf="(business_name.dirty || business_name.touched) && business_name.errors" class="errors">
+      <span *ngIf="business_name.errors?.required">Business Name is required</span>
+     </div>
+  
+     <ion-item>
+      <ion-input type="text" style="text-transform: capitalize;"  placeholder="Franchisee First Name" formControlName="first_name"></ion-input>
+     </ion-item>
+     <div *ngIf="(first_name.dirty || first_name.touched) && first_name.errors" class="errors">
+      <span *ngIf="first_name.errors?.required">First Name is required</span>
+      <span *ngIf="first_name.errors?.maxLength">Enter Max 30 </span>
+     </div>
+  
+     <ion-item>
+      <ion-input type="text" style="text-transform: capitalize;" placeholder="Franchisee Last Name" formControlName="last_name"></ion-input>
+     </ion-item>
+     <div *ngIf="(last_name.dirty || last_name.touched) && last_name.errors" class="errors">
+      <span *ngIf="last_name.errors?.required">Last Name is required</span>
+     </div>
+
+
+     <ion-item>
+      <ion-input type="text" placeholder="Username" formControlName="user_name"></ion-input>
+     </ion-item>
+     <div *ngIf="(user_name.dirty || user_name.touched) && user_name.errors" class="errors">
+      <span *ngIf="user_name.errors?.required">Username is required</span>
+      <span *ngIf="!user_name.valid">This username already exist</span>
+     </div>
+  
+     <ion-item>
+      <ion-input type="number" placeholder="Mobile No." formControlName="mobile"></ion-input>
+     </ion-item>
+  
+     <div *ngIf="(mobile.dirty || mobile.touched) && mobile.errors" class="errors">
+      <span *ngIf="mobile.errors?.required">Mobile Number is required</span>
+      <span *ngIf="mobile.errors?.mobile">Mobile Number is invalid</span>
+     </div>
+  
+     <ion-item>
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+     </ion-item>
+  
+     <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+      <span *ngIf="email.errors?.required">Email is required</span>
+      <span *ngIf="email.errors?.email">Email is invalid</span>
+     </div>
+  
+
+     <ion-item>
+      <ion-input type="text" style="text-transform: capitalize;" placeholder="Business Address" formControlName="business_add"></ion-input>
+     </ion-item>
+  
+     <div *ngIf="(business_add.dirty || business_add.touched) && business_add.errors" class="errors">
+      <span *ngIf="business_add.errors?.required">Business Address is required</span>
+     </div>
+
+     <ion-item *ngIf="showPassword">
+      <ion-icon slot="end" color="primary" name="eye" (click)="togglePasswordText()"></ion-icon>
+      <ion-input type="text" placeholder="Password" formControlName="password" required></ion-input>
+    </ion-item>
+
+      <ion-item *ngIf="!showPassword">
+          <ion-input type="password" placeholder="Password" formControlName="password" required></ion-input>
+          <ion-icon slot="end" color="medium" name="eye-off" (click)="togglePasswordText()"></ion-icon>
+      </ion-item>
+
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">Password is required</span>
+        <span *ngIf="password.errors?.minlength">Password need to be 6 characters</span>
+      </div>
+   </div>
+   
+    <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Submit</ion-button>
+    <ion-button type="button" expand="block" routerLink="/" routerDirection="forward" fill="clear">Already Have Account? Sign In</ion-button>
+  
+  </form>
+  </ion-card-content>
+  </ion-card>
+  </ion-col>
+  </ion-row>
+  </ion-content>
+  
+  

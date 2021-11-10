@@ -1,0 +1,556 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngFor="let gameid of gameids">New Game Id : {{gameid.game_id}}</ion-title>
+    <!-- <h2 color="danger">{{fire_game_status}}</h2> -->
+    <ion-menu-button slot="end" color="warning"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+<div style="margin-bottom: 50px;">
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher> -->
+
+  <div class="comment ion-text-center">
+    <ion-chip outline color="warning" style="background-color: #3d2702;">
+      <ion-label color="warning">Time to left</ion-label>:-{{minutesToDday}}:{{secondsToDday}}
+    </ion-chip>
+  </div>
+
+  <div class="chip ion-text-center">
+    <img src="../../../assets/img/chips.png">
+  </div>
+
+<div *ngIf="gameids?.length > 0">
+
+  <div class="comment ion-text-center">
+    <ion-chip outline color="warning" style="background-color: #3d2702;">
+      <ion-label color="warning">Click below box to add/edit points</ion-label>
+    </ion-chip>
+  </div>
+
+  <div class="comment ion-text-center">
+    <ion-chip outline color="warning" style="background-color: #3d2702;" *ngFor="let user of users">
+      <ion-label color="warning">Game Deposit : {{user.fran_game_deposit - (data1 + data2 + data3 + data4 + data5 + data6 + data7 + data8 + data9 + data10 + data11)}}</ion-label>
+    </ion-chip>
+  </div>
+
+  <div *ngFor="let game_status1 of game_status">
+
+
+  <div gameimgs *ngIf="!gameimgs?.length > 0">
+
+  <div class="container ion-text-center" *ngIf="fire_game_status == 'S'" >
+  <form (ngSubmit)="Submit_points()" [formGroup]="game_points">
+
+    <div >
+      <div *ngFor="let user of users">
+        <ion-input hidden class = "input"  type="text" formControlName="fran_id" [(ngModel)]="user.fran_id" style="text-align:center;"></ion-input>
+      </div>  
+      <div *ngFor="let gameid of gameids">
+        <ion-input hidden class = "input"  type="text" formControlName="game_id" [(ngModel)]="gameid.game_id" style="text-align:center;"></ion-input>
+      </div>
+  
+    </div>
+
+    <ion-grid>
+      <!-- row 1 -->
+      <ion-row>
+        <ion-col>
+          <ion-card (click) = "modals1()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>1</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/elephant.png" />
+              <h6>Elephant</h6>
+              <ion-input   class = "input" type="text" formControlName="img_1" [(ngModel)]="data1" value="{{data1}}"  style="text-align:center" ></ion-input>
+              <!-- <ion-label class="label_value">{{data_for_show1}}</ion-label> -->
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals2()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>2</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/tortoise.png" />
+              <h6>Turtle</h6>
+            <ion-input   class = "input" type="text" formControlName="img_2" [(ngModel)]="data2" value="{{data2}}" style="text-align:center" ></ion-input>
+              <!-- <ion-label class="label_value">{{data_for_show2}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals3()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>3</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/rabbit.png" />
+              <h6>Rabbit</h6>
+              <ion-input   class = "input" type="text" formControlName="img_3" [(ngModel)]="data3" value="{{data3}}" style="text-align:center" ></ion-input>
+              <!-- <ion-label class="label_value">{{data_for_show3}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 2 -->
+      <ion-row>
+        <ion-col (click) = "modals4()">
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>4</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/lion.png" />
+              <h6>Lion</h6>
+            <ion-input  class = "input" type="text" formControlName="img_4" [(ngModel)]="data4" value="{{data4}}" style="text-align:center"></ion-input>
+            <!-- <ion-label class="label_value">{{data_for_show4}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals5()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>5</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/car.png" />
+              <h6>Car</h6>
+            <ion-input  class = "input" type="text" formControlName="img_5" [(ngModel)]="data5" value="{{data5}}" style="text-align:center" ></ion-input>
+            <!-- <ion-label class="label_value">{{data_for_show5}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals6()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>6</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/aeroplane.png" />
+              <h6>Aeroplane</h6>
+            <ion-input  class = "input" type="text" formControlName="img_6" [(ngModel)]="data6" value="{{data6}}" style="text-align:center" ></ion-input>
+            <!-- <ion-label class="label_value">{{data_for_show6}}</ion-label> -->
+
+             
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 3 -->
+      <ion-row>
+        <ion-col (click) ="modals7()">
+          <ion-card>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>7</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/ship.png" />
+              <h6>Ship</h6>
+              <ion-input  class = "input" type="text"  formControlName="img_7" [(ngModel)]="data7" value="{{data7}}" style="text-align:center" ></ion-input>
+              <!-- <ion-label class="label_value">{{data_for_show7}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals8()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>8</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/tree.png" />
+              <h6>Tree</h6>
+            <ion-input  class = "input" type="text" formControlName="img_8" [(ngModel)]="data8" value="{{data8}}" style="text-align:center" ></ion-input>
+            <!-- <ion-label class="label_value">{{data_for_show8}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals9()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>9</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/sun.png" />
+              <h6>Sun</h6>
+            <ion-input  class = "input" type="text" formControlName="img_9" [(ngModel)]="data9" value="{{data9}}" style="text-align:center" ></ion-input>
+            <!-- <ion-label class="label_value">{{data_for_show9}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- row 4 -->
+      <ion-row>
+        <ion-col>
+          <ion-card (click) = "modals10()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>10</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/banana.png" />
+              <h6>Banana</h6>
+              <ion-input  class = "input" type="text" formControlName="img_10" [(ngModel)]="data10" value="{{data10}}" style="text-align:center" ></ion-input>
+              <!-- <ion-label class="label_value">{{data_for_show10}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click) = "modals11()">
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button color="success">
+                <ion-label>11</ion-label>
+              </ion-fab-button>
+            </ion-fab>
+
+            <ion-card-header>
+              <img src="../../assets/animal_pic/jackpot.png" />
+              <h6>Jackpot</h6>
+              <ion-input  class = "input" type="text" formControlName="img_11" [(ngModel)]="data11" value="{{data11}}" style="text-align:center" ></ion-input>
+              <!-- <ion-label class="label_value">{{data_for_show11}}</ion-label> -->
+
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <h5><b>TOTAL</b></h5>
+              <div *ngFor="let user of users">
+                <ion-label class="label_value"> {{data1 + data2 + data3 + data4 + data5 + data6 + data7 + data8 + data9 + data10 + data11}}</ion-label>
+
+              </div>
+              <!-- <h3> <ion-input type="text" formControlName="total" [(ngModel)]="total" value="{{data_for_show1 + data_for_show2 + data_for_show3 + data_for_show4 + data_for_show5 + data_for_show6 + data_for_show7 + data_for_show8 + data_for_show9 + data_for_show10 + data_for_show11 }}" style="text-align:center"></ion-input></h3> -->
+              <h3> <ion-input hidden  type="text" formControlName="total" [(ngModel)]="total" value="{{data1 + data2 + data3 + data4 + data5 + data6 + data7 + data8 + data9 + data10 + data11 }}" style="text-align:center"></ion-input></h3>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <section class="ion-text-center">
+      <ion-button type="submit" color="warning" size="default">Submit Points</ion-button>
+      <ion-button (click) ="reset()" color="dark"  size="3">Clear All Points</ion-button>
+      <!-- <div *ngIf="current_game_amounts?.length > 0">
+        <ion-button type="submit" routerLink="/tabs-menu/current-game-points" color="success" size="default">Show My Points</ion-button>
+      </div> -->
+      <!-- <ion-label type="button" style="background: transparent !important;"><ion-icon color="warning" size="large" (click) ="reset()" name="refresh-circle-sharp"></ion-icon></ion-label> -->
+      <!-- <ion-button Click="" color="warning" size="default">Reset Points</ion-button> -->
+    </section>
+
+
+  </form>
+  </div>
+  </div>
+  <!-- ------------------------------This Div For Fetch Game Points --------------------------------->
+
+  <div gameimgs *ngIf="gameimgs?.length > 0">
+    <div class="container ion-text-center" *ngIf="fire_game_status == 'S'" >
+      <form (ngSubmit)="Submit_points()" [formGroup]="game_points">
+
+        <ion-grid>
+          <!-- row 1 -->
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>1</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/elephant.png" />
+                  <h6>Elephant</h6>
+                  <!-- <ion-input   class = "input" type="text" formControlName="img_1" [(ngModel)]="data1" value="{{data1}}"  style="text-align:center" ></ion-input> -->
+                  <ion-label class="label_value">{{data_for_show1}}</ion-label>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>2</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/tortoise.png" />
+                  <h6>Turtle</h6>
+                <!-- <ion-input   class = "input" type="text" formControlName="img_2" [(ngModel)]="data2" value="{{data2}}" style="text-align:center" ></ion-input> -->
+                  <ion-label class="label_value">{{data_for_show2}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>3</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/rabbit.png" />
+                  <h6>Rabbit</h6>
+                  <!-- <ion-input   class = "input" type="text" formControlName="img_3" [(ngModel)]="data3" value="{{data3}}" style="text-align:center" ></ion-input> -->
+                  <ion-label class="label_value">{{data_for_show3}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <!-- row 2 -->
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>4</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/lion.png" />
+                  <h6>Lion</h6>
+                <!-- <ion-input  class = "input" type="text" formControlName="img_4" [(ngModel)]="data4" value="{{data4}}" style="text-align:center"></ion-input> -->
+                <ion-label class="label_value">{{data_for_show4}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>5</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/car.png" />
+                  <h6>Car</h6>
+                <!-- <ion-input  class = "input" type="text" formControlName="img_5" [(ngModel)]="data5" value="{{data5}}" style="text-align:center" ></ion-input> -->
+                <ion-label class="label_value">{{data_for_show5}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>6</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/aeroplane.png" />
+                  <h6>Aeroplane</h6>
+                <!-- <ion-input  class = "input" type="text" formControlName="img_6" [(ngModel)]="data6" value="{{data6}}" style="text-align:center" ></ion-input> -->
+                <ion-label class="label_value">{{data_for_show6}}</ion-label>
+
+                
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <!-- row 3 -->
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>7</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/ship.png" />
+                  <h6>Ship</h6>
+                  <!-- <ion-input  class = "input" type="text"  formControlName="img_7" [(ngModel)]="data7" value="{{data7}}" style="text-align:center" ></ion-input> -->
+                  <ion-label class="label_value">{{data_for_show7}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>8</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/tree.png" />
+                  <h6>Tree</h6>
+                <!-- <ion-input  class = "input" type="text" formControlName="img_8" [(ngModel)]="data8" value="{{data8}}" style="text-align:center" ></ion-input> -->
+                <ion-label class="label_value">{{data_for_show8}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>9</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/sun.png" />
+                  <h6>Sun</h6>
+                <!-- <ion-input  class = "input" type="text" formControlName="img_9" [(ngModel)]="data9" value="{{data9}}" style="text-align:center" ></ion-input> -->
+                <ion-label class="label_value">{{data_for_show9}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <!-- row 4 -->
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>10</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/banana.png" />
+                  <h6>Banana</h6>
+                  <!-- <ion-input  class = "input" type="text" formControlName="img_10" [(ngModel)]="data10" value="{{data10}}" style="text-align:center" ></ion-input> -->
+                  <ion-label class="label_value">{{data_for_show10}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-fab vertical="top" horizontal="start">
+                  <ion-fab-button color="success">
+                    <ion-label>11</ion-label>
+                  </ion-fab-button>
+                </ion-fab>
+
+                <ion-card-header>
+                  <img src="../../assets/animal_pic/jackpot.png" />
+                  <h6>Jackpot</h6>
+                  <!-- <ion-input  class = "input" type="text" formControlName="img_11" [(ngModel)]="data11" value="{{data11}}" style="text-align:center" ></ion-input> -->
+                  <ion-label class="label_value">{{data_for_show11}}</ion-label>
+
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col>
+              <ion-card>
+                <ion-card-header>
+                  <h5><b>TOTAL</b></h5>
+
+                    <ion-label class="label_value"> {{data_for_show1 + data_for_show2 + data_for_show3 + data_for_show4 + data_for_show5 + data_for_show6 + data_for_show7 + data_for_show8 + data_for_show9 + data_for_show10 + data_for_show11 }}</ion-label>
+
+                  <!-- <h3> <ion-input type="text" formControlName="total" [(ngModel)]="total" value="{{data_for_show1 + data_for_show2 + data_for_show3 + data_for_show4 + data_for_show5 + data_for_show6 + data_for_show7 + data_for_show8 + data_for_show9 + data_for_show10 + data_for_show11 }}" style="text-align:center"></ion-input></h3> -->
+                  <!-- <h3> <ion-input hidden  type="text" formControlName="total" [(ngModel)]="total" value="{{data1 + data2 + data3 + data4 + data5 + data6 + data7 + data8 + data9 + data10 + data11 }}" style="text-align:center"></ion-input></h3> -->
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+
+  </div>
+  <div *ngIf="fire_game_status != 'S'" style="margin:auto; text-align: center; color: skyblue;">
+    <!-- <img src="../../../assets/img/lightbulb-desk.gif" style="border-radius: 60%; height: 50%; width: 40%;"> -->
+    <h4 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;margin-top: 32%;">... Processing ...</h4>
+  </div>
+  </div>
+ </div>
+
+ <div style="align-items: center; text-align: center; color: goldenrod;margin-top: 30%;" *ngIf="!gameids?.length > 0">
+  <h4 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;margin-top: 32%;">.... Waiting For New Game .... </h4>
+</div>
+</div>
+
+</ion-content>
+
+

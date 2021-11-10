@@ -1,0 +1,130 @@
+<ion-app>
+  <ion-menu menuId="main-menu" side="end" contentId="main">
+    <ion-content [fullscreen]="true">
+      
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="../../../assets/img/chips.png">
+        <ion-label *ngFor="let user of users">
+          <h2>{{user.first_name}} {{user.last_name}}</h2>
+          <p>Franchise Id - {{user.fran_userid}}</p>
+        </ion-label>
+      </div>
+      
+      <div class="action-button">
+        <ion-menu-toggle autoHide="false">
+        <ion-button routerLink="/tabs-menu/profile">
+          <ion-icon slot="start" name="person"></ion-icon><h5 style="color: goldenrod;">My Profile</h5>
+        </ion-button>
+      </ion-menu-toggle>
+      </div>
+
+      <ion-list class="menu-items" lines="none">
+        <ion-menu-toggle autoHide="false">
+          <ion-item  routerLink="/tabs-menu/dashboard">
+            <ion-icon slot="start" name="home"></ion-icon>
+            <ion-label>Dashboard</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item  routerLink="/tabs-menu/notifications">
+            <ion-icon slot="start" name="notifications-circle-outline"></ion-icon>
+              <ion-label>Notifications</ion-label>
+            </ion-item>
+        </ion-menu-toggle>
+
+        <!-- <ion-menu-toggle autoHide="false">
+          <ion-item  routerLink="/tabs-menu/withdraw-points">
+            <ion-icon slot="start" name="wallet"></ion-icon>
+              <ion-label>Withdraw Points</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item  routerLink="/tabs-menu/history">
+            <ion-icon slot="start" name="timer"></ion-icon>
+              <ion-label>History</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/support">
+            <ion-icon slot="start" name="chatbubbles"></ion-icon>
+              <ion-label>Support</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item  button (click)="logout()" detail="false">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>Log Out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main">
+    <ion-tabs >  
+      <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed" translucent="true">
+        <ion-fab-button routerLink="/tabs-menu/newgame" color="dark">
+          <ion-icon name="game-controller" color="warning"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> -->
+      
+      <ion-tab-bar slot="bottom" class="ion-no-border">
+        <ion-tab-button tab="dashboard" class="home">
+          <ion-icon color="warning" name="home"></ion-icon>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="notifications" class="comments" >
+          <ion-icon name="notifications" color="warning"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="newgame" class="newgame">
+          <ion-icon name="game-controller" color="warning"></ion-icon>
+        </ion-tab-button>
+        <!-- <svg height="50"  width="100" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd"></path></svg> -->
+    
+        <ion-tab-button tab="history" class="notifs" >
+          <ion-icon name="timer" color="warning"></ion-icon>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="transactions" class="support">
+          <ion-icon color="warning" name="wallet"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+    <!-- <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="dashboard">
+          <ion-icon name="flame"></ion-icon>
+          <ion-label >&nbsp;</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="notifications">
+          <ion-icon name="search" ></ion-icon>
+          <ion-label>&nbsp;</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="tab3">
+          <ion-icon name="add" class="custom-tab" ></ion-icon>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="tab4">
+          <ion-icon name="notifications"  ></ion-icon>
+          <ion-badge >4</ion-badge>
+          <ion-label>&nbsp;</ion-label>
+        </ion-tab-button>
+        
+    
+        <ion-tab-button tab="tab5" >
+          <ion-icon name="person"></ion-icon>
+          <ion-label>&nbsp;</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs> -->
+  </ion-router-outlet>
+</ion-app>

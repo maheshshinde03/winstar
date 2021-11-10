@@ -1,0 +1,168 @@
+<ion-toolbar class="header">
+  <ion-title>{{ model_title }}</ion-title>
+
+  <ion-label color="warning" style="font-size: medium;">Your Previous Amount : {{ pre_points }}</ion-label>
+
+  <ion-label color="warning" *ngIf="image_no=='0'">0</ion-label>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="closeModal()">
+      <ion-icon color="warning" name="close-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-fab horizontal="center" *ngIf="image_no=='1'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/elephant.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>  
+
+<ion-fab horizontal="center" *ngIf="image_no=='2'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/tortoise.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='3'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/rabbit.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='4'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/lion.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='5'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/car.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='6'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/aeroplane.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='7'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/ship.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='8'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/tree.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='9'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/sun.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab horizontal="center" *ngIf="image_no=='10'">
+  <ion-fab-button  color="warning" class="ion-text-center">
+    <img src="../../assets/animal_pic/banana.png">
+  </ion-fab-button>
+  <ion-fab-button color="success" class="ion-text-center">
+    {{image_no}}
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content class="mainDiv">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <ion-list>
+  <ion-grid>
+    <ion-radio-group name="radioGroup" (ionChange)="radioGroupChange($event)" [(ngModel)]="operators">
+    <ion-row>
+      <ion-col>
+        <div class="stud">  
+          <ion-radio mode="md" color="danger" size="small" id="addN" name="Number" value="addNumber" (ngModelSelect)="radioSelect1($event)"
+            checked="true"></ion-radio>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="stud1">
+          <ion-radio mode="md" color="danger" size="small" id="subN" name="Number" value="subNumber" (ngModelSelect)="radioSelect2($event)"
+            checked="false"></ion-radio>
+        </div>
+      </ion-col>
+
+      <!-- <ion-col>
+        <div class="stud1">
+          <ion-radio mode="md" color="danger" size="small" id="subN" name="Number" value="inputvalue" (ngModelSelect)="radioSelect3($event)"
+            checked="false"></ion-radio>
+        </div>
+      </ion-col> -->
+      
+      <!-- <form (ngSubmit)="submit()" [formGroup]="points"></form> -->
+
+      <ion-col class="ion-text-center">
+        <ion-input type="number" [(ngModel)]="s" value="{{s}}"></ion-input>
+       
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row class="ion-align-items-start">
+      <ion-col   size="3" *ngFor="let n of numberN" (click)="getNumber(n)">
+         <ion-button  size="small" class="forSelectNum"  expand="block" >{{n}}</ion-button> 
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col >
+        <ion-button expand="block" size="full"  (click)="send_0()">select '0'</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      
+      <ion-col>
+        <ion-button expand="block" color="danger" size="full" (click)="close()">CANCEL</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="success" size="full" (click)="submit()">SELECT</ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+</ion-list>
+
+</ion-content>

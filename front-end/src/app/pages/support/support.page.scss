@@ -1,0 +1,91 @@
+ion-header {
+  ion-toolbar {
+    --padding-top: 7px;
+    --padding-bottom: 7px;
+    --background: #000000;
+    color: goldenrod;
+text-align: center;
+    ion-back-button{
+      --color: goldenrod;
+    }
+  }
+}
+
+
+ion-content{
+
+  --padding-start: 0px;
+  --padding-end: 0px;
+
+  --background: #fff url("../../../assets/img/homebg10.jpg") no-repeat center
+    center / cover;
+.message{
+    padding:2px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+
+    #for_msg_id{
+      color: goldenrod;
+    }
+
+
+   }
+   
+   .other-message{
+//    background: var(--ion-color-tertiary);
+// background-color: #3e7a96;
+   background-color: (rgba(247, 228, 147, 0.8)) !important;
+   color: rgb(17, 16, 16);
+   }
+   
+   .my-message{
+    //    background: var(--ion-color-secondary);
+    // background-color: #6bb1d1;
+    background-color: (rgba(247, 228, 147, 0.8)) !important;
+       color: rgb(24, 23, 23);
+   }
+   
+   .time{
+   color: #dfdfdf;
+   float: right;
+   font-size: small;
+   }
+   
+  
+  
+}
+
+ion-footer{
+
+// background: transparent !important;
+border-radius: 25px;
+  .message-input{
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 15px;
+  background-color: (rgba(247, 228, 147, 0.8)) !important;
+  color: black;
+    // background: rgb(218, 237, 245);
+    resize: none;
+    padding-left:10px;
+    padding-right: 10px;
+    // margin-bottom: 60px;
+   }
+  
+   .message-input:hover,
+   .message-input:focus {
+  background:  black;
+  // background:  rgb(164, 220, 245);
+  transition: none;
+  outline: none;
+  }
+   
+   .msg-btn{
+    --padding-start: 0.5em;
+    --padding-end:0.5em;
+    --padding-bottom:0.5em;
+    // margin-bottom: 10px;
+   }
+}
+

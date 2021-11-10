@@ -1,0 +1,98 @@
+ion-toolbar {
+  margin-top: 100px;
+  --background: linear-gradient(
+    90deg,
+    rgba(43, 90, 148, 1) 0%,
+    rgba(45, 112, 229, 1) 35%,
+    rgba(45, 112, 229, 1) 100%
+  );
+  background: #f1f5f8;
+  padding: 0 10px;
+  // border: none;
+  border-radius: 25px 25px 25px 25px;
+
+  ion-title {
+    color: rgb(246, 248, 250);
+  }
+
+  ion-label{
+    padding-left: 10px;
+    font-weight: bolder;
+  }
+}
+
+ion-toolbar {
+  .bordered {
+    --border-radius: 10px;
+    --box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
+  }
+}
+
+ion-fab {
+  ion-fab-button {
+    margin-left: -15px;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    img {
+      width: 70%;
+    }
+  }
+  ion-fab-button:nth-child(2) {
+    font-size: 18px;
+    font-weight: bolder;
+    margin-left: 60px;
+    margin-top: -100px;
+    width: 40px;
+    height: 40px;
+    img {
+      width: 70%;
+    }
+  }
+}
+ion-label {
+  margin-top: -10px;
+}
+ion-input{
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+  --background: #CCD1D1;
+}
+
+.stud{
+  background-image: url(../../../assets/img/add.jpg);
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+   border: 2px solid black;
+  border-radius: 25px;
+
+}
+.stud1{
+background-image: url(../../../assets/img/minus.png);
+height: 40px;
+width: 40px;
+background-size: cover;
+border: 2px solid black;
+border-radius: 25px;
+}
+
+ion-radio{
+opacity: 0.6;
+height: 40px; 
+width: 40px;
+}
+
+.forSelectNum:hover{
+--border-color:red;
+--background:red;
+// --background-activated-opacity:0.9;
+}
+
+.numerShow{
+padding: 5px;
+margin: 5px;
+border-radius: 20px;
+}
+
+

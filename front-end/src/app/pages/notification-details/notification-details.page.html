@@ -1,0 +1,30 @@
+
+
+<ion-header  color="primary">
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="notifications-sharp"></ion-icon> Notification Details</ion-title>
+    <ion-menu-button slot="end"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let notoficationDetail of notoficationDetails">
+    <ion-card-header>
+      <h1>{{notoficationDetail.subject}}</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <h4>{{notoficationDetail.message}}</h4>
+    </ion-card-content>
+    <ion-footer>
+    <ion-row>
+      <ion-col center text-center>
+          <div>{{notoficationDetail.date_time |  date:'short'}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+  </ion-card>
+</ion-content>
